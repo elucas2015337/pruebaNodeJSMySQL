@@ -83,5 +83,27 @@ cursor: pointer;
       background-color:rgb(236, 209, 255);
       border: 1px solid #4b0082;
     }
+
+    .card-header{
+      color: indigo;
+    }
+
+    .btn-primary{
+      background-color: rgba(55, 216, 15, 0.973);
+  }
+  
+  .btn-light {
+    color: indigo;
+    font-size: 20px;
+      border-radius: 8px;
+      position: fixed;
+     right: 0;
+     top: 0;
+     margin: 8px;
+      }
+  
+  .close{
+      color: indigo;
+  }
     
      

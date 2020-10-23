@@ -1,0 +1,67 @@
+<body style="background-color:mediumpurple;">
+    <div id="loginButton">
+           
+    <button type="button" class="btn btn-light"  data-toggle="modal" data-target="#loginModal">Login</button>
+    
+  </div>
+
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h3>Regístrate</h3>
+                </div>
+                <div class="card-body">
+                    <form action="/signup" method="POST">
+                        <div class="form-group">
+                            <input type="fullname" class="form-control" name="fullname" placeholder="Nombre Completo" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <input type="username" class="form-control" name="username" placeholder="Nombre de Usuario">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="password" placeholder="Contraseña">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-success btn-block">Registrarme</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{!-- Login Modal --}}
+    <div class="modal fade"  id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Inicia Sesión</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form  action="/signin" method="POST">
+            <div class="form-group">
+                            <input type="username" class="form-control" name="username" placeholder="Usuario" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="password" placeholder="Contraseña">
+                        </div>
+            
+            <div class="modal-footer">
+                <div class="form-group">
+                    <button class="btn btn-success btn-block">Iniciar Sesión</button>
+                </div>
+            </div>
+          </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+</body>

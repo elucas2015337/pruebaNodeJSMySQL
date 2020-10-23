@@ -97,6 +97,12 @@ _Ejecutar en el terminal el siguiente comando pra iniciar la aplicación_
 npm start
 ```
 
+_Al ingresar a la vista de la apliación, se encontrará con el formulario para registrarse y un boton para el login, el formulario para registrarse funciona correctamente, sin embargo el tiempo no me fue suficiente para unir los vehículos con los usuarios ni de hacer funcionar el login, sin ambargo puede acceder a la traba de vehículos para comprobar el funcionamiento del crud cambiando la dirección en la barra de direcciones del navegador_
+
+```
+http://localhost:3000/vehicle
+```
+
 _En caso de error con los privilegios o con la protección contra scripts de windows puede consultar los siguientes enlaces_
 
 * https://stackoverflow.com/questions/4037939/powershell-says-execution-of-scripts-is-disabled-on-this-system
