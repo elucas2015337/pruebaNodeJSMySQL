@@ -1,5 +1,5 @@
 #plusButton {
-    background-color: rgb(28, 243, 232);
+    background-color: plum;
   border: none;
   color: white;
   padding-top: 0;
@@ -21,22 +21,67 @@ cursor: pointer;
     #plusButton:hover{
         transition: all 0.3s ease;
         font-size: 40px;
-        background-color: rgb(3, 138, 161);
+        background-color: rebeccapurple;
     }
 
-    #example{
+    #dataTable{
         color: indigo;
         
       }
   
       #customtr:nth-child(2n+1){
-        background-color: rgb(236, 209, 255);
+        background-color: thistle;
       }
       #customtr :hover:not(.header) {
-        background-color: rgb(223, 179, 255);
+        background-color: plum;
       }
   
       .table-bordered td, .table-bordered th {
         border: 0px solid rgb(255, 255, 255);
     }
+
+    .navbar-light{
+      background-color: rebeccapurple;
+  }
+  
+    #brand{
+      color: white;
+      font-size: 30px;
+      padding: 0;
+  
+    }
+  
+
+    .custom-control-label::before {
+      border: indigo solid 1px;
+    }
+    
+    .btn-success{
+      background-color: indigo;
+      border-color: indigo;
+    }
+    .btn-success:hover{
+      background-color: rgb(43, 2, 73);
+      border-color: indigo;
+    }
+    
+    
+    #addNewVehicle{
+      color: indigo;
+    }
+    .close{
+      color: indigo;
+    }
+    
+    .form-control {
+      background-color:rgb(236, 209, 255);
+      border: 1px solid #4b0082;
+    }
+
+    #inlineFormCustomSelectPref{
+      color: indigo;
+      background-color:rgb(236, 209, 255);
+      border: 1px solid #4b0082;
+    }
+    
      

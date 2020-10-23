@@ -3,6 +3,11 @@ const morgan = require('morgan');
 const exphbs = require('express-handlebars')
 const path = require('path');
 const { dirname } = require('path');
+const session = require('express-session');
+const mySQLStore = require('express-mysql-session');
+
+const { database } = require('./keys');
+
 //Inicializaciones
 
 const app = express();
@@ -22,7 +27,12 @@ app.engine('.hbs', exphbs({
 app.set('view engine', '.hbs');
 
 //Middlewares
-
+app.use(session({
+    secret: 'sqlnodesession',
+    resave: false,
+    saveUninitialized: false,
+    store: new mySQLStore(database)
+}));
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
