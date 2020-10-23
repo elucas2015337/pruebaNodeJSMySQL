@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Hola</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{{!-- <link rel="stylesheet" href="http://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> --}}
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
+
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'></script>
+<script type="text/javascript" src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+<script type="text/javascript" src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
+<script type="text/javascript" src='https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js'></script>
+<script type="text/javascript" src='https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js'></script>
+</head>
+<body>
+    <div class="container mb-3 mt-3">
+        <table id="dataTable" class="table table-bordered table-striped" style="width: 100%">
+          <thead>
+            <tr>
+              <th>Marca</th>
+              <th>Modelo</th>
+              <th>Año</th>
+              <th>Placa</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+              {{!-- Genera una fila por cada vehículo guardado --}}
+               {{#each vehicles}}
+            <tr id="customtr" class='clickable-row' data-href='vehicle/edit/{{id}}'>
+              <td>{{brand}}</td>
+              <td>{{model}}</td>
+              <td>{{year}}</td>
+              <td>{{plates}}</td>
+              <td>{{vehicle_status}}</td>
+            </tr>
+             {{/each}}
+          </tbody>
+        </table>
+      </div>
+
+     
+{{!-- Save modal --}}
+    <div class="modal fade"  id="addNewVehicle" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Agregar vehículo</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form  action="/vehicle/add" method="POST">
+            <div class="form-group">
+                            <input type="text" class="form-control" name="brand" placeholder="Marca" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="model" placeholder="Modelo">
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-control" name="year" placeholder="Año">
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="text" class="form-control" pattern="[O-P]{1}[-]\d{3}[A-Z]{3}" name="plates" placeholder="Placa">
+                        </div>
+                        <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="vehicle_status">
+                            <option selected>Estado</option>
+                            <option value="Perfecto">Perfecto</option>
+                            <option value="Daño menor">Daño menor</option>
+                            <option value="Reparación urgente">Reparación urgente</option>
+                            <option value="En reparación">En reparación</option>
+                            <option value="Descarte">Descarte</option>
+                        </select>
+                        
+           
+            
+            <div class="modal-footer">
+                <div class="form-group">
+                    <button class="btn btn-success btn-block">Guardar</button>
+                </div>
+            </div>
+          </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  {{!-- add button --}}
+
+   <button id="plusButton" class="btn" data-toggle="modal" data-target="#addNewVehicle"><i class="fa fa-plus-square"></i></button>
+
+{{!-- Modal dinámico --}}
+
+ <div class="modal fade"  id="vehicleActions" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          {{!-- <h5 class="modal-title" id="exampleModalLabel">Agregar vehículo</h5> --}}
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form  action="/vehicle/add" method="POST">
+            <div class="form-group">
+                            <input type="text" class="form-control" name="brand" placeholder="Marca" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="model" placeholder="Modelo">
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-control" name="year" placeholder="Año">
+                        </div>
+                        {{!-- Campo con la validadción para poder ingresar unicamente placas que comiencen con "O" o "P" seguido de un guión, 3 numeros y 3 letras mayusculas --}}
+                        <div class="form-group">
+                            <input type="text" class="form-control" pattern="[O-P]{1}[-]\d{3}[A-Z]{3}" name="plates" placeholder="Placa">
+                        </div>
+                        <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="vehicle_status">
+                            <option selected>Estado</option>
+                            <option value="Perfecto">Perfecto</option>
+                            <option value="Daño menor">Daño menor</option>
+                            <option value="Reparación urgente">Reparación urgente</option>
+                            <option value="En reparación">En reparación</option>
+                            <option value="Descarte">Descarte</option>
+                        </select>
+                        
+           
+            
+            <div class="modal-footer">
+                <div class="form-group">
+                    <button class="btn btn-success btn-block">Guardar</button>
+                </div>
+            </div>
+          </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+{{!-- Inicializar datatable --}}
+      <script>
+           $('#dataTable').DataTable();
+        //Hacer los tr de datatable clickeadbles
+        jQuery(document).ready(function($) {
+        $(".clickable-row").click(function() {
+        window.location = $(this).data("href");
+    });
+});
+      </script>  
+
+
+</body>
+
+</html>

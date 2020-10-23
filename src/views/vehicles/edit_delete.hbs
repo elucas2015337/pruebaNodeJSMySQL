@@ -1,0 +1,39 @@
+{{!-- Formulario con datos pre-seteados --}}
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/vehicle/edit/{{vehicles.id}}" method="POST">
+                        <div class="form-group">
+                            <input type="text" value="{{vehicles.brand}}" class="form-control" name="brand" placeholder="Marca" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" value="{{vehicles.model}}" class="form-control" name="model" placeholder="Modelo">
+                        </div>
+                        <div class="form-group">
+                            <input type="number" value="{{vehicles.year}}" class="form-control" name="year" placeholder="Año">
+                        </div>
+                        {{!-- Campo con la validadción para poder ingresar unicamente placas que comiencen con "O" o "P" seguido de un guión, 3 numeros y 3 letras mayusculas --}}
+                        <div class="form-group">
+                            <input type="text" value="{{vehicles.plates}}" class="form-control" pattern="[O-P]{1}[-]\d{3}[A-Z]{3}" name="plates" placeholder="Placa">
+                        </div>
+                        <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="vehicle_status">
+                            <option selected>Escoja el estado</option>
+                            <option value="Perfecto">Perfecto</option>
+                            <option value="Daño menor">Daño menor</option>
+                            <option value="Reparación urgente">Reparación urgente</option>
+                            <option value="En reparación">En reparación</option>
+                            <option value="Descarte">Descarte</option>
+                        </select>
+                        <div class="form-group">
+                            <button class="btn btn-success btn-block">Actualizar</button>
+                            <a href="/vehicle/delete/{{vehicles.id}}" class="btn btn-danger btn-block">Eliminar</a>
+                            <a href="/vehicle" class="btn btn-secondary btn-block">Cancelar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+#plusButton {
+    background-color: rgb(28, 243, 232);
+  border: none;
+  color: white;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 1;
+  padding-right: 1;
+  font-size: 35px;
+cursor: pointer;
+  margin: 8px 8px;
+  }
+
+  #plusButton {
+    border-radius: 8px;
+    position: fixed;
+   right: 0;
+   bottom: 0;
+    }
+
+    #plusButton:hover{
+        transition: all 0.3s ease;
+        font-size: 40px;
+        background-color: rgb(3, 138, 161);
+    }
+
+    #example{
+        color: indigo;
+        
+      }
+  
+      #customtr:nth-child(2n+1){
+        background-color: rgb(236, 209, 255);
+      }
+      #customtr :hover:not(.header) {
+        background-color: rgb(223, 179, 255);
+      }
+  
+      .table-bordered td, .table-bordered th {
+        border: 0px solid rgb(255, 255, 255);
+    }
+     
